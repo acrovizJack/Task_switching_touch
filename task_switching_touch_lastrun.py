@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on July 15, 2024, at 16:39
+    on July 15, 2024, at 17:41
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -403,7 +403,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     back_img = visual.ImageStim(
         win=win,
         name='back_img', 
-        image=imgpth, mask=None, anchor='center',
+        image='stimuli/iphone_back.png', mask=None, anchor='center',
         ori=0.0, pos=(0, 0), size=backimgSize,
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,

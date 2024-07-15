@@ -238,7 +238,7 @@ async function experimentInit() {
   slideN = 1;
   maxSlideN = 5;
   minSlideN = 1;
-  backimgSize = [0.98, 1.68];
+  backimgSize = [1, 1.7];
   imgpth = "stimuli/iphone_back.png";
   
   key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -258,7 +258,7 @@ async function experimentInit() {
     name : 'instr_image', units : undefined, 
     image : 'default.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.05)], size : [1.5, 0.75],
+    ori : 0.0, pos : [0, (- 0.05)], size : [0.98, 1],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -3.0 
@@ -295,6 +295,14 @@ async function experimentInit() {
   mouse.mouseClock = new util.Clock();
   // Initialize components for Routine "ReadyNumbers"
   ReadyNumbersClock = new util.Clock();
+  // Run 'Begin Experiment' code from code_5
+  previousTask = null;
+  slideN = 1;
+  maxSlideN = 5;
+  minSlideN = 1;
+  backimgSize = [1, 1.7];
+  imgpth = "stimuli/iphone_back.png";
+  
   back_img_6 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'back_img_6', units : undefined, 
@@ -303,17 +311,17 @@ async function experimentInit() {
     ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : 0.0 
+    texRes : 128.0, interpolate : true, depth : -1.0 
   });
   Instr_numbers_Only = new visual.ImageStim({
     win : psychoJS.window,
     name : 'Instr_numbers_Only', units : undefined, 
     image : 'stimuli/readynumbers.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.05)], size : [1.5, 0.75],
+    ori : 0.0, pos : [0, (- 0.05)], size : [0.98, 0.77],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -1.0 
+    texRes : 128.0, interpolate : true, depth : -2.0 
   });
   key_resp_2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
@@ -442,7 +450,7 @@ async function experimentInit() {
     name : 'Readyletter_img', units : undefined, 
     image : 'stimuli/readyletters.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.05)], size : [1.5, 0.75],
+    ori : 0.0, pos : [0, (- 0.05)], size : [0.98, 0.77],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -552,7 +560,7 @@ async function experimentInit() {
     name : 'ErrorImage_2', units : undefined, 
     image : 'stimuli/task1.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0.5, 0.125], size : [0.5, 0.4],
+    ori : 0.0, pos : [0, 0.45], size : [0.5, 0.4],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -3.0 
@@ -574,7 +582,7 @@ async function experimentInit() {
     name : 'ReadyMix_img', units : undefined, 
     image : 'stimuli/readylettersnumbers.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.05)], size : [1.5, 0.75],
+    ori : 0.0, pos : [0, (- 0.05)], size : [0.98, 0.77],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -1850,7 +1858,7 @@ function FeedbackRoutineBegin(snapshot) {
     }
     
     FeedBack_NumberTask.setText(feedbackText);
-    ErrorImage.setPos([0.5, (- 0.125)]);
+    ErrorImage.setPos([0, (- 0.45)]);
     // keep track of which components have finished
     FeedbackComponents = [];
     FeedbackComponents.push(back_img_3);
@@ -3279,12 +3287,12 @@ function Mixed_FeedbackRoutineBegin(snapshot) {
     }
     _pj = {};
     _pj_snippets(_pj);
-    basePos = 0.125;
+    basePos = 0.45;
     if ((stimPos[1] > 0)) {
-        errorImagePos = [(0.125 + 0.35), basePos];
+        errorImagePos = [0, basePos];
         errorimgpth = "stimuli/task1.png";
     } else {
-        errorImagePos = [(0.125 + 0.35), (- basePos)];
+        errorImagePos = [0, (- basePos)];
         errorimgpth = "stimuli/task2.png";
     }
     if ((MixedResponse.corr || _pj.in_es6(correctkeyformouse, NumberClickResponse_3.clicked_name))) {

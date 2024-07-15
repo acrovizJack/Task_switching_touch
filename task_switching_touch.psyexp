@@ -97,8 +97,8 @@
       <CodeComponent name="code" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="# Initialize the previousTask variable&amp;#10;previousTask = None&amp;#10;slideN = 1&amp;#10;maxSlideN = 5&amp;#10;minSlideN = 1&amp;#10;backimgSize=[0.98,1.68]&amp;#10;imgpth='stimuli/iphone_back.png'" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="previousTask = null;&amp;#10;slideN = 1;&amp;#10;maxSlideN = 5;&amp;#10;minSlideN = 1;&amp;#10;backimgSize = [0.98, 1.68];&amp;#10;imgpth = &quot;stimuli/iphone_back.png&quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="# Initialize the previousTask variable&amp;#10;previousTask = None&amp;#10;slideN = 1&amp;#10;maxSlideN = 5&amp;#10;minSlideN = 1&amp;#10;backimgSize=[1,1.7]&amp;#10;imgpth='stimuli/iphone_back.png'" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="previousTask = null;&amp;#10;slideN = 1;&amp;#10;maxSlideN = 5;&amp;#10;minSlideN = 1;&amp;#10;backimgSize = [1, 1.7];&amp;#10;imgpth = &quot;stimuli/iphone_back.png&quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
@@ -176,7 +176,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, -0.05)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.5, 0.75)" valType="list" updates="constant" name="size"/>
+        <Param val="(0.98, 1)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -578,7 +578,7 @@
         <Param val="ErrorImage" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="0.5,-0.125" valType="list" updates="set every repeat" name="pos"/>
+        <Param val="0,-0.45" valType="list" updates="set every repeat" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="(0.6, 0.4)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
@@ -1032,6 +1032,23 @@
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
+      <CodeComponent name="code_5" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="# Initialize the previousTask variable&amp;#10;previousTask = None&amp;#10;slideN = 1&amp;#10;maxSlideN = 5&amp;#10;minSlideN = 1&amp;#10;backimgSize=[1,1.7]&amp;#10;imgpth='stimuli/iphone_back.png'" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="previousTask = null;&amp;#10;slideN = 1;&amp;#10;maxSlideN = 5;&amp;#10;minSlideN = 1;&amp;#10;backimgSize = [1, 1.7];&amp;#10;imgpth = &quot;stimuli/iphone_back.png&quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="code_5" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <ImageComponent name="back_img_6" plugin="None">
         <Param val="center" valType="str" updates="constant" name="anchor"/>
         <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
@@ -1077,7 +1094,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, -0.05)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.5, 0.75)" valType="list" updates="constant" name="size"/>
+        <Param val="(0.98, 0.77)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1190,7 +1207,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, -0.05)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.5, 0.75)" valType="list" updates="constant" name="size"/>
+        <Param val="(0.98, 0.77)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1344,7 +1361,7 @@
         <Param val="ErrorImage_2" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="0.5,0.125" valType="list" updates="constant" name="pos"/>
+        <Param val="0,0.45" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="(0.5, 0.4)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
@@ -1419,7 +1436,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, -0.05)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.5, 0.75)" valType="list" updates="constant" name="size"/>
+        <Param val="(0.98, 0.77)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1520,8 +1537,8 @@
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;basePos = 0.125;&amp;#10;if ((stimPos[1] &gt; 0)) {&amp;#10;    errorImagePos = [(0.125 + 0.35), basePos];&amp;#10;    errorimgpth = &quot;stimuli/task1.png&quot;;&amp;#10;} else {&amp;#10;    errorImagePos = [(0.125 + 0.35), (- basePos)];&amp;#10;    errorimgpth = &quot;stimuli/task2.png&quot;;&amp;#10;}&amp;#10;if ((MixedResponse.corr || _pj.in_es6(correctkeyformouse, NumberClickResponse_3.clicked_name))) {&amp;#10;    feedbackText = &quot;\u6b63\u78ba!&quot;;&amp;#10;    showErrorImage = false;&amp;#10;    acc_list.push(1);&amp;#10;} else {&amp;#10;    feedbackText = &quot;\u932f\u8aa4!&quot;;&amp;#10;    showErrorImage = true;&amp;#10;    acc_list.push(0);&amp;#10;}&amp;#10;if (showErrorImage) {&amp;#10;    ErrorImage_3.setAutoDraw(true);&amp;#10;} else {&amp;#10;    ErrorImage_3.setAutoDraw(false);&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Define the base position&amp;#10;basePos = 0.125&amp;#10;&amp;#10;# Determine the error image position based on the quadrant&amp;#10;if stimPos[1] &gt; 0:  # Top quadrants&amp;#10;    errorImagePos = [0.125 + 0.35, basePos]&amp;#10;    errorimgpth = 'stimuli/task1.png'&amp;#10;else:  # Bottom quadrants&amp;#10;    errorImagePos = [0.125 + 0.35, -basePos]&amp;#10;    errorimgpth = 'stimuli/task2.png'&amp;#10;    &amp;#10;    &amp;#10;# Check if the response was correct&amp;#10;if MixedResponse.corr or correctkeyformouse in NumberClickResponse_3.clicked_name:&amp;#10;    feedbackText = '正確!'&amp;#10;    showErrorImage = False&amp;#10;    acc_list.append(1)&amp;#10;else:&amp;#10;    feedbackText = '錯誤!'&amp;#10;    showErrorImage = True&amp;#10;    acc_list.append(0)&amp;#10;    &amp;#10;&amp;#10;&amp;#10;# Control the visibility of the error image&amp;#10;if showErrorImage:&amp;#10;    ErrorImage_3.setAutoDraw(True)&amp;#10;else:&amp;#10;    ErrorImage_3.setAutoDraw(False)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;basePos = 0.45;&amp;#10;if ((stimPos[1] &gt; 0)) {&amp;#10;    errorImagePos = [0, basePos];&amp;#10;    errorimgpth = &quot;stimuli/task1.png&quot;;&amp;#10;} else {&amp;#10;    errorImagePos = [0, (- basePos)];&amp;#10;    errorimgpth = &quot;stimuli/task2.png&quot;;&amp;#10;}&amp;#10;if ((MixedResponse.corr || _pj.in_es6(correctkeyformouse, NumberClickResponse_3.clicked_name))) {&amp;#10;    feedbackText = &quot;\u6b63\u78ba!&quot;;&amp;#10;    showErrorImage = false;&amp;#10;    acc_list.push(1);&amp;#10;} else {&amp;#10;    feedbackText = &quot;\u932f\u8aa4!&quot;;&amp;#10;    showErrorImage = true;&amp;#10;    acc_list.push(0);&amp;#10;}&amp;#10;if (showErrorImage) {&amp;#10;    ErrorImage_3.setAutoDraw(true);&amp;#10;} else {&amp;#10;    ErrorImage_3.setAutoDraw(false);&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="# Define the base position&amp;#10;basePos = 0.45&amp;#10;&amp;#10;# Determine the error image position based on the quadrant&amp;#10;if stimPos[1] &gt; 0:  # Top quadrants&amp;#10;    #errorImagePos = [0.125 + 0.35, basePos]&amp;#10;    errorImagePos = [0, basePos]&amp;#10;    errorimgpth = 'stimuli/task1.png'&amp;#10;else:  # Bottom quadrants&amp;#10;    #errorImagePos = [0.125 + 0.35, -basePos]&amp;#10;    errorImagePos = [0, -basePos]&amp;#10;    errorimgpth = 'stimuli/task2.png'&amp;#10;    &amp;#10;    &amp;#10;# Check if the response was correct&amp;#10;if MixedResponse.corr or correctkeyformouse in NumberClickResponse_3.clicked_name:&amp;#10;    feedbackText = '正確!'&amp;#10;    showErrorImage = False&amp;#10;    acc_list.append(1)&amp;#10;else:&amp;#10;    feedbackText = '錯誤!'&amp;#10;    showErrorImage = True&amp;#10;    acc_list.append(0)&amp;#10;    &amp;#10;&amp;#10;&amp;#10;# Control the visibility of the error image&amp;#10;if showErrorImage:&amp;#10;    ErrorImage_3.setAutoDraw(True)&amp;#10;else:&amp;#10;    ErrorImage_3.setAutoDraw(False)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
