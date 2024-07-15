@@ -14,7 +14,7 @@
     <Param val="" valType="str" updates="None" name="HTML path"/>
     <Param val="" valType="str" updates="None" name="Incomplete URL"/>
     <Param val="testMonitor" valType="str" updates="None" name="Monitor"/>
-    <Param val="['stimuli/grid.png', 'stimuli/instructions1.png', 'stimuli/instructions2.png', 'stimuli/instructions3.png', 'stimuli/instructions4.png', 'stimuli/instructions5.png', 'stimuli/readyletters.png', 'stimuli/readylettersnumbers.png', 'stimuli/readynumbers.png', 'stimuli/stimuli.svg', 'stimuli/task_switch_backimg.png', 'stimuli/task1.png', 'stimuli/task2.png', 'stimuli/thankyou.png']" valType="list" updates="None" name="Resources"/>
+    <Param val="['stimuli/grid.png', 'stimuli/instructions1.png', 'stimuli/instructions2.png', 'stimuli/instructions3.png', 'stimuli/instructions4.png', 'stimuli/instructions5.png', 'stimuli/iphone_back.png', 'stimuli/opening.mp4', 'stimuli/readyletters.png', 'stimuli/readylettersnumbers.png', 'stimuli/readynumbers.png', 'stimuli/stimuli.svg', 'stimuli/task_switch_backimg.png', 'stimuli/task1.png', 'stimuli/task2.png', 'stimuli/thankyou.png']" valType="list" updates="None" name="Resources"/>
     <Param val="False" valType="bool" updates="None" name="Save csv file"/>
     <Param val="False" valType="bool" updates="None" name="Save excel file"/>
     <Param val="False" valType="bool" updates="None" name="Save hdf5 file"/>
@@ -44,7 +44,7 @@
     <Param val="False" valType="bool" updates="None" name="elSimMode"/>
     <Param val="RIGHT_EYE" valType="str" updates="None" name="elTrackEyes"/>
     <Param val="PUPIL_CR_TRACKING" valType="str" updates="None" name="elTrackingMode"/>
-    <Param val="task_switching" valType="str" updates="None" name="expName"/>
+    <Param val="task_switching_touch" valType="str" updates="None" name="expName"/>
     <Param val="on Save" valType="str" updates="None" name="exportHTML"/>
     <Param val="None" valType="str" updates="None" name="eyetracker"/>
     <Param val="" valType="code" updates="None" name="frameRate"/>
@@ -97,8 +97,8 @@
       <CodeComponent name="code" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="# Initialize the previousTask variable&amp;#10;previousTask = None&amp;#10;slideN = 1&amp;#10;maxSlideN = 5&amp;#10;minSlideN = 1" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="previousTask = null;&amp;#10;slideN = 1;&amp;#10;maxSlideN = 5;&amp;#10;minSlideN = 1;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="# Initialize the previousTask variable&amp;#10;previousTask = None&amp;#10;slideN = 1&amp;#10;maxSlideN = 5&amp;#10;minSlideN = 1&amp;#10;backimgSize=[0.98,1.68]&amp;#10;imgpth='stimuli/iphone_back.png'" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="previousTask = null;&amp;#10;slideN = 1;&amp;#10;maxSlideN = 5;&amp;#10;minSlideN = 1;&amp;#10;backimgSize = [0.98, 1.68];&amp;#10;imgpth = &quot;stimuli/iphone_back.png&quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
@@ -140,7 +140,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img" valType="code" updates="None" name="name"/>
@@ -148,7 +148,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,0.995)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -289,7 +289,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_2" valType="code" updates="None" name="name"/>
@@ -297,7 +297,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -501,7 +501,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_3" valType="code" updates="None" name="name"/>
@@ -509,7 +509,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -617,7 +617,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_4" valType="code" updates="None" name="name"/>
@@ -625,7 +625,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -829,7 +829,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_5" valType="code" updates="None" name="name"/>
@@ -837,7 +837,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1041,7 +1041,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_6" valType="code" updates="None" name="name"/>
@@ -1049,7 +1049,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1154,7 +1154,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_7" valType="code" updates="None" name="name"/>
@@ -1162,7 +1162,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1267,7 +1267,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_8" valType="code" updates="None" name="name"/>
@@ -1275,7 +1275,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1383,7 +1383,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_9" valType="code" updates="None" name="name"/>
@@ -1391,7 +1391,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1496,7 +1496,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_10" valType="code" updates="None" name="name"/>
@@ -1504,7 +1504,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1646,7 +1646,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="stimuli/task_switch_backimg.png" valType="file" updates="constant" name="image"/>
+        <Param val="$imgpth" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="back_img_11" valType="code" updates="None" name="name"/>
@@ -1654,7 +1654,7 @@
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(1.775,1)" valType="list" updates="constant" name="size"/>
+        <Param val="backimgSize" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
