@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on April 21, 2025, at 12:14
+    on July 15, 2024, at 17:41
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -397,58 +397,42 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     slideN = 1
     maxSlideN = 5
     minSlideN = 1
-    backimgSize=[1,1.7]
+    backimgSize=[0.98,1.68]
     imgpth='stimuli/iphone_back.png'
     key_resp = keyboard.Keyboard(deviceName='key_resp')
     back_img = visual.ImageStim(
         win=win,
         name='back_img', 
-        image=imgpth, mask=None, anchor='center',
+        image='stimuli/iphone_back.png', mask=None, anchor='center',
         ori=0.0, pos=(0, 0), size=backimgSize,
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-2.0)
-    logo = visual.ImageStim(
-        win=win,
-        name='logo', units='pix', 
-        image='stimuli/logo.png', mask=None, anchor='bottom-left',
-        ori=0.0, pos=(-200, -320), size=(320/2, 125/2),
-        color=[1,1,1], colorSpace='rgb', opacity=None,
-        flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-3.0)
     instr_image = visual.ImageStim(
         win=win,
         name='instr_image', 
         image='default.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.05), size=(0.98, 1),
+        ori=0.0, pos=(0, -0.05), size=(1.5, 0.75),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-4.0)
+        texRes=128.0, interpolate=True, depth=-3.0)
     Right_Rectangle_2 = visual.Rect(
         win=win, name='Right_Rectangle_2',units='norm', 
         width=(1,2)[0], height=(1,2)[1],
         ori=0.0, pos=(0.5, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, 0.7882, 0.5373], fillColor=[1.0000, 0.7882, 0.5373],
-        opacity=0.0, depth=-5.0, interpolate=True)
+        opacity=0.0, depth=-4.0, interpolate=True)
     Left_Rectangle_2 = visual.Rect(
         win=win, name='Left_Rectangle_2',units='norm', 
         width=(1,2)[0], height=(1,2)[1],
         ori=0.0, pos=(-0.5, 0), anchor='center',
         lineWidth=1.0,     colorSpace='rgb',  lineColor=[-1.0000, -1.0000, -1.0000], fillColor=[-1.0000, -1.0000, -1.0000],
-        opacity=0.0, depth=-6.0, interpolate=True)
+        opacity=0.0, depth=-5.0, interpolate=True)
     mouse = event.Mouse(win=win)
     x, y = [None, None]
     mouse.mouseClock = core.Clock()
     
     # --- Initialize components for Routine "ReadyNumbers" ---
-    # Run 'Begin Experiment' code from code_5
-    # Initialize the previousTask variable
-    previousTask = None
-    slideN = 1
-    maxSlideN = 5
-    minSlideN = 1
-    backimgSize=[1,1.7]
-    imgpth='stimuli/iphone_back.png'
     back_img_6 = visual.ImageStim(
         win=win,
         name='back_img_6', 
@@ -456,23 +440,15 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0), size=backimgSize,
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-1.0)
+        texRes=128.0, interpolate=True, depth=0.0)
     Instr_numbers_Only = visual.ImageStim(
         win=win,
         name='Instr_numbers_Only', 
         image='stimuli/readynumbers.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.05), size=(0.98, 0.77),
+        ori=0.0, pos=(0, -0.05), size=(1.5, 0.75),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-2.0)
-    logo_2 = visual.ImageStim(
-        win=win,
-        name='logo_2', units='pix', 
-        image='stimuli/logo.png', mask=None, anchor='bottom-left',
-        ori=0.0, pos=(-200, -320), size=(320/2, 125/2),
-        color=[1,1,1], colorSpace='rgb', opacity=None,
-        flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-3.0)
+        texRes=128.0, interpolate=True, depth=-1.0)
     key_resp_2 = keyboard.Keyboard(deviceName='key_resp_2')
     mouse_2 = event.Mouse(win=win)
     x, y = [None, None]
@@ -561,7 +537,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='Readyletter_img', 
         image='stimuli/readyletters.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.05), size=(0.98, 0.77),
+        ori=0.0, pos=(0, -0.05), size=(1.5, 0.75),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
@@ -635,7 +611,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='ErrorImage_2', 
         image='stimuli/task1.png', mask=None, anchor='center',
-        ori=0.0, pos=[0,0.45], size=(0.5, 0.4),
+        ori=0.0, pos=[0.5,0.125], size=(0.5, 0.4),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-3.0)
@@ -653,7 +629,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='ReadyMix_img', 
         image='stimuli/readylettersnumbers.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.05), size=(0.98, 0.77),
+        ori=0.0, pos=(0, -0.05), size=(1.5, 0.75),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
@@ -821,7 +797,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         mouse.clicked_name = []
         gotValidClick = False  # until a click is received
         # keep track of which components have finished
-        InstructionComponents = [key_resp, back_img, logo, instr_image, Right_Rectangle_2, Left_Rectangle_2, mouse]
+        InstructionComponents = [key_resp, back_img, instr_image, Right_Rectangle_2, Left_Rectangle_2, mouse]
         for thisComponent in InstructionComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -889,26 +865,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             # if back_img is active this frame...
             if back_img.status == STARTED:
-                # update params
-                pass
-            
-            # *logo* updates
-            
-            # if logo is starting this frame...
-            if logo.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                logo.frameNStart = frameN  # exact frame index
-                logo.tStart = t  # local t and not account for scr refresh
-                logo.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(logo, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'logo.started')
-                # update status
-                logo.status = STARTED
-                logo.setAutoDraw(True)
-            
-            # if logo is active this frame...
-            if logo.status == STARTED:
                 # update params
                 pass
             
@@ -1093,7 +1049,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     mouse_2.time = []
     gotValidClick = False  # until a click is received
     # keep track of which components have finished
-    ReadyNumbersComponents = [back_img_6, Instr_numbers_Only, logo_2, key_resp_2, mouse_2]
+    ReadyNumbersComponents = [back_img_6, Instr_numbers_Only, key_resp_2, mouse_2]
     for thisComponent in ReadyNumbersComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1153,26 +1109,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         
         # if Instr_numbers_Only is active this frame...
         if Instr_numbers_Only.status == STARTED:
-            # update params
-            pass
-        
-        # *logo_2* updates
-        
-        # if logo_2 is starting this frame...
-        if logo_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            logo_2.frameNStart = frameN  # exact frame index
-            logo_2.tStart = t  # local t and not account for scr refresh
-            logo_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(logo_2, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'logo_2.started')
-            # update status
-            logo_2.status = STARTED
-            logo_2.setAutoDraw(True)
-        
-        # if logo_2 is active this frame...
-        if logo_2.status == STARTED:
             # update params
             pass
         
@@ -1656,7 +1592,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             ErrorImage.setAutoDraw(False)
         
         FeedBack_NumberTask.setText(feedbackText)
-        ErrorImage.setPos([0,-0.45])
+        ErrorImage.setPos([0.5,-0.125])
         # keep track of which components have finished
         FeedbackComponents = [back_img_3, FeedBack_NumberTask, ErrorImage]
         for thisComponent in FeedbackComponents:
@@ -3206,16 +3142,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisExp.addData('Mixed_Feedback.started', globalClock.getTime(format='float'))
             # Run 'Begin Routine' code from FeedBack_Code_3
             # Define the base position
-            basePos = 0.45
+            basePos = 0.125
             
             # Determine the error image position based on the quadrant
             if stimPos[1] > 0:  # Top quadrants
-                #errorImagePos = [0.125 + 0.35, basePos]
-                errorImagePos = [0, basePos]
+                errorImagePos = [0.125 + 0.35, basePos]
                 errorimgpth = 'stimuli/task1.png'
             else:  # Bottom quadrants
-                #errorImagePos = [0.125 + 0.35, -basePos]
-                errorImagePos = [0, -basePos]
+                errorImagePos = [0.125 + 0.35, -basePos]
                 errorimgpth = 'stimuli/task2.png'
                 
                 

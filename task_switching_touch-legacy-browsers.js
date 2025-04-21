@@ -34,7 +34,7 @@ psychoJS.schedule(psychoJS.gui.DlgFromDict({
 
 const flowScheduler = new Scheduler(psychoJS);
 const dialogCancelScheduler = new Scheduler(psychoJS);
-psychoJS.scheduleCondition(function() { return (psychoJS.gui.dialogComponent.button === 'OK'); },flowScheduler, dialogCancelScheduler);
+psychoJS.scheduleCondition(function() { return (psychoJS.gui.dialogComponent.button === 'OK'); }, flowScheduler, dialogCancelScheduler);
 
 // flowScheduler gets run if the participants presses OK
 flowScheduler.add(updateInfo); // add timeStamp
@@ -91,7 +91,6 @@ psychoJS.start({
   expInfo: expInfo,
   resources: [
     // resources:
-    {'name': 'stimuli/logo.png', 'path': 'stimuli/logo.png'},
     {'name': 'default.png', 'path': 'https://pavlovia.org/assets/default/default.png'},
     {'name': 'stimuli/readynumbers.png', 'path': 'stimuli/readynumbers.png'},
     {'name': 'stimuli/grid.png', 'path': 'stimuli/grid.png'},
@@ -127,7 +126,7 @@ async function updateInfo() {
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
   expInfo['expName'] = expName;
-  expInfo['psychopyVersion'] = '2024.2.4';
+  expInfo['psychopyVersion'] = '2024.1.4';
   expInfo['OS'] = window.navigator.platform;
 
 
@@ -160,7 +159,6 @@ var backimgSize;
 var imgpth;
 var key_resp;
 var back_img;
-var logo;
 var instr_image;
 var Right_Rectangle_2;
 var Left_Rectangle_2;
@@ -168,7 +166,6 @@ var mouse;
 var ReadyNumbersClock;
 var back_img_6;
 var Instr_numbers_Only;
-var logo_2;
 var key_resp_2;
 var mouse_2;
 var NumberTask_PracticeClock;
@@ -243,70 +240,45 @@ async function experimentInit() {
     name : 'back_img', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -2.0 
-  });
-  logo = new visual.ImageStim({
-    win : psychoJS.window,
-    name : 'logo', units : 'pix', 
-    image : 'stimuli/logo.png', mask : undefined,
-    anchor : 'bottom-left',
-    ori : 0.0, 
-    pos : [(- 200), (- 320)], 
-    draggable: false,
-    size : [(320 / 2), (125 / 2)],
-    color : new util.Color([1,1,1]), opacity : undefined,
-    flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -3.0 
   });
   instr_image = new visual.ImageStim({
     win : psychoJS.window,
     name : 'instr_image', units : undefined, 
     image : 'default.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, (- 0.05)], 
-    draggable: false,
-    size : [0.98, 1],
+    ori : 0.0, pos : [0, (- 0.05)], size : [0.98, 1],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -4.0 
+    texRes : 128.0, interpolate : true, depth : -3.0 
   });
   Right_Rectangle_2 = new visual.Rect ({
     win: psychoJS.window, name: 'Right_Rectangle_2', units : 'norm', 
     width: [1, 2][0], height: [1, 2][1],
-    ori: 0.0, 
-    pos: [0.5, 0], 
-    draggable: false, 
-    anchor: 'center', 
+    ori: 0.0, pos: [0.5, 0],
+    anchor: 'center',
     lineWidth: 1.0, 
-    lineColor: new util.Color([1.0, 0.7882, 0.5373]), 
-    fillColor: new util.Color([1.0, 0.7882, 0.5373]), 
-    colorSpace: 'rgb', 
-    opacity: 0.0, 
-    depth: -5, 
-    interpolate: true, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: [1.0, 0.7882, 0.5373],
+    opacity: 0.0, depth: -4, interpolate: true,
   });
   
   Left_Rectangle_2 = new visual.Rect ({
     win: psychoJS.window, name: 'Left_Rectangle_2', units : 'norm', 
     width: [1, 2][0], height: [1, 2][1],
-    ori: 0.0, 
-    pos: [(- 0.5), 0], 
-    draggable: false, 
-    anchor: 'center', 
+    ori: 0.0, pos: [(- 0.5), 0],
+    anchor: 'center',
     lineWidth: 1.0, 
-    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]), 
-    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]), 
-    colorSpace: 'rgb', 
-    opacity: 0.0, 
-    depth: -6, 
-    interpolate: true, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: [(- 1.0), (- 1.0), (- 1.0)],
+    opacity: 0.0, depth: -5, interpolate: true,
   });
   
   mouse = new core.Mouse({
@@ -328,10 +300,7 @@ async function experimentInit() {
     name : 'back_img_6', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -341,26 +310,10 @@ async function experimentInit() {
     name : 'Instr_numbers_Only', units : undefined, 
     image : 'stimuli/readynumbers.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, (- 0.05)], 
-    draggable: false,
-    size : [0.98, 0.77],
+    ori : 0.0, pos : [0, (- 0.05)], size : [0.98, 0.77],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -2.0 
-  });
-  logo_2 = new visual.ImageStim({
-    win : psychoJS.window,
-    name : 'logo_2', units : 'pix', 
-    image : 'stimuli/logo.png', mask : undefined,
-    anchor : 'bottom-left',
-    ori : 0.0, 
-    pos : [(- 200), (- 320)], 
-    draggable: false,
-    size : [(320 / 2), (125 / 2)],
-    color : new util.Color([1,1,1]), opacity : undefined,
-    flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -3.0 
   });
   key_resp_2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
@@ -375,10 +328,7 @@ async function experimentInit() {
     name : 'back_img_2', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -388,10 +338,7 @@ async function experimentInit() {
     name : 'grid', units : undefined, 
     image : 'stimuli/grid.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : [0.5, 0.5],
+    ori : 0.0, pos : [0, 0], size : [0.5, 0.5],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -399,33 +346,27 @@ async function experimentInit() {
   left = new visual.Rect ({
     win: psychoJS.window, name: 'left', units : 'norm', 
     width: [1, 2][0], height: [1, 2][1],
-    ori: 0.0, 
-    pos: [(- 0.5), 0], 
-    draggable: false, 
-    anchor: 'center', 
+    ori: 0.0, pos: [(- 0.5), 0],
+    anchor: 'center',
     lineWidth: 1.0, 
-    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]), 
-    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]), 
-    colorSpace: 'rgb', 
-    opacity: 0.0, 
-    depth: -2, 
-    interpolate: true, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: [(- 1.0), (- 1.0), (- 1.0)],
+    opacity: 0.0, depth: -2, interpolate: true,
   });
   
   right = new visual.Rect ({
     win: psychoJS.window, name: 'right', units : 'norm', 
     width: [1, 2][0], height: [1, 2][1],
-    ori: 0.0, 
-    pos: [0.5, 0], 
-    draggable: false, 
-    anchor: 'center', 
+    ori: 0.0, pos: [0.5, 0],
+    anchor: 'center',
     lineWidth: 1.0, 
-    lineColor: new util.Color([1.0, 0.7882, 0.5373]), 
-    fillColor: new util.Color([1.0, 0.7882, 0.5373]), 
-    colorSpace: 'rgb', 
-    opacity: 0.0, 
-    depth: -3, 
-    interpolate: true, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: [1.0, 0.7882, 0.5373],
+    opacity: 0.0, depth: -3, interpolate: true,
   });
   
   // Run 'Begin Experiment' code from NumberTask_Code
@@ -438,7 +379,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6078), (- 0.6706), (- 0.0118)]),  opacity: undefined,
     depth: -5.0 
@@ -457,10 +398,7 @@ async function experimentInit() {
     name : 'back_img_3', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -471,7 +409,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6078), (- 0.6706), (- 0.0118)]),  opacity: undefined,
     depth: -2.0 
@@ -482,10 +420,7 @@ async function experimentInit() {
     name : 'ErrorImage', units : undefined, 
     image : 'stimuli/task2.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : [0.6, 0.4],
+    ori : 0.0, pos : [0, 0], size : [0.6, 0.4],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -3.0 
@@ -497,10 +432,7 @@ async function experimentInit() {
     name : 'back_img_7', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -510,10 +442,7 @@ async function experimentInit() {
     name : 'Readyletter_img', units : undefined, 
     image : 'stimuli/readyletters.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, (- 0.05)], 
-    draggable: false,
-    size : [0.98, 0.77],
+    ori : 0.0, pos : [0, (- 0.05)], size : [0.98, 0.77],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -531,10 +460,7 @@ async function experimentInit() {
     name : 'back_img_5', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -544,10 +470,7 @@ async function experimentInit() {
     name : 'grid_3', units : undefined, 
     image : 'stimuli/grid.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : [0.5, 0.5],
+    ori : 0.0, pos : [0, 0], size : [0.5, 0.5],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -562,7 +485,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6078), (- 0.6706), (- 0.0118)]),  opacity: undefined,
     depth: -3.0 
@@ -573,33 +496,27 @@ async function experimentInit() {
   left_2 = new visual.Rect ({
     win: psychoJS.window, name: 'left_2', units : 'norm', 
     width: [1, 2][0], height: [1, 2][1],
-    ori: 0.0, 
-    pos: [(- 0.5), 0], 
-    draggable: false, 
-    anchor: 'center', 
+    ori: 0.0, pos: [(- 0.5), 0],
+    anchor: 'center',
     lineWidth: 1.0, 
-    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]), 
-    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]), 
-    colorSpace: 'rgb', 
-    opacity: 0.0, 
-    depth: -5, 
-    interpolate: true, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: [(- 1.0), (- 1.0), (- 1.0)],
+    opacity: 0.0, depth: -5, interpolate: true,
   });
   
   right_2 = new visual.Rect ({
     win: psychoJS.window, name: 'right_2', units : 'norm', 
     width: [1, 2][0], height: [1, 2][1],
-    ori: 0.0, 
-    pos: [0.5, 0], 
-    draggable: false, 
-    anchor: 'center', 
+    ori: 0.0, pos: [0.5, 0],
+    anchor: 'center',
     lineWidth: 1.0, 
-    lineColor: new util.Color([1.0, 0.7882, 0.5373]), 
-    fillColor: new util.Color([1.0, 0.7882, 0.5373]), 
-    colorSpace: 'rgb', 
-    opacity: 0.0, 
-    depth: -6, 
-    interpolate: true, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: [1.0, 0.7882, 0.5373],
+    opacity: 0.0, depth: -6, interpolate: true,
   });
   
   NumberClickResponse_2 = new core.Mouse({
@@ -613,10 +530,7 @@ async function experimentInit() {
     name : 'back_img_8', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -627,7 +541,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6078), (- 0.6706), (- 0.0118)]),  opacity: undefined,
     depth: -2.0 
@@ -638,10 +552,7 @@ async function experimentInit() {
     name : 'ErrorImage_2', units : undefined, 
     image : 'stimuli/task1.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0.45], 
-    draggable: false,
-    size : [0.5, 0.4],
+    ori : 0.0, pos : [0, 0.45], size : [0.5, 0.4],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -3.0 
@@ -653,10 +564,7 @@ async function experimentInit() {
     name : 'back_img_9', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -666,10 +574,7 @@ async function experimentInit() {
     name : 'ReadyMix_img', units : undefined, 
     image : 'stimuli/readylettersnumbers.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, (- 0.05)], 
-    draggable: false,
-    size : [0.98, 0.77],
+    ori : 0.0, pos : [0, (- 0.05)], size : [0.98, 0.77],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -689,10 +594,7 @@ async function experimentInit() {
     name : 'back_img_4', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -702,10 +604,7 @@ async function experimentInit() {
     name : 'grid_2', units : undefined, 
     image : 'stimuli/grid.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : [0.5, 0.5],
+    ori : 0.0, pos : [0, 0], size : [0.5, 0.5],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -716,7 +615,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6078), (- 0.6706), (- 0.0118)]),  opacity: undefined,
     depth: -3.0 
@@ -727,33 +626,27 @@ async function experimentInit() {
   left_3 = new visual.Rect ({
     win: psychoJS.window, name: 'left_3', units : 'norm', 
     width: [1, 2][0], height: [1, 2][1],
-    ori: 0.0, 
-    pos: [(- 0.5), 0], 
-    draggable: false, 
-    anchor: 'center', 
+    ori: 0.0, pos: [(- 0.5), 0],
+    anchor: 'center',
     lineWidth: 1.0, 
-    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]), 
-    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]), 
-    colorSpace: 'rgb', 
-    opacity: 0.0, 
-    depth: -5, 
-    interpolate: true, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: [(- 1.0), (- 1.0), (- 1.0)],
+    opacity: 0.0, depth: -5, interpolate: true,
   });
   
   right_3 = new visual.Rect ({
     win: psychoJS.window, name: 'right_3', units : 'norm', 
     width: [1, 2][0], height: [1, 2][1],
-    ori: 0.0, 
-    pos: [0.5, 0], 
-    draggable: false, 
-    anchor: 'center', 
+    ori: 0.0, pos: [0.5, 0],
+    anchor: 'center',
     lineWidth: 1.0, 
-    lineColor: new util.Color([1.0, 0.7882, 0.5373]), 
-    fillColor: new util.Color([1.0, 0.7882, 0.5373]), 
-    colorSpace: 'rgb', 
-    opacity: 0.0, 
-    depth: -6, 
-    interpolate: true, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: [1.0, 0.7882, 0.5373],
+    opacity: 0.0, depth: -6, interpolate: true,
   });
   
   NumberClickResponse_3 = new core.Mouse({
@@ -767,10 +660,7 @@ async function experimentInit() {
     name : 'back_img_10', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -781,7 +671,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6078), (- 0.6706), (- 0.0118)]),  opacity: undefined,
     depth: -2.0 
@@ -792,10 +682,7 @@ async function experimentInit() {
     name : 'ErrorImage_3', units : undefined, 
     image : 'default.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : [0.5, 0.4],
+    ori : 0.0, pos : [0, 0], size : [0.5, 0.4],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -3.0 
@@ -807,10 +694,7 @@ async function experimentInit() {
     name : 'back_img_11', units : undefined, 
     image : imgpth, mask : undefined,
     anchor : 'center',
-    ori : 0.0, 
-    pos : [0, 0], 
-    draggable: false,
-    size : backimgSize,
+    ori : 0.0, pos : [0, 0], size : backimgSize,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -821,7 +705,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6078), (- 0.6706), (- 0.0118)]),  opacity: undefined,
     depth: -2.0 
@@ -1169,10 +1053,8 @@ function BlockLoopEndIteration(scheduler, snapshot) {
 var t;
 var frameN;
 var continueRoutine;
-var InstructionMaxDurationReached;
 var _key_resp_allKeys;
 var gotValidClick;
-var InstructionMaxDuration;
 var InstructionComponents;
 function InstructionRoutineBegin(snapshot) {
   return async function () {
@@ -1180,12 +1062,11 @@ function InstructionRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'Instruction' ---
     t = 0;
+    InstructionClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    InstructionClock.reset();
-    routineTimer.reset();
-    InstructionMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('Instruction.started', globalClock.getTime());
     key_resp.keys = undefined;
     key_resp.rt = undefined;
     _key_resp_allKeys = [];
@@ -1200,13 +1081,10 @@ function InstructionRoutineBegin(snapshot) {
     mouse.time = [];
     mouse.clicked_name = [];
     gotValidClick = false; // until a click is received
-    psychoJS.experiment.addData('Instruction.started', globalClock.getTime());
-    InstructionMaxDuration = null
     // keep track of which components have finished
     InstructionComponents = [];
     InstructionComponents.push(key_resp);
     InstructionComponents.push(back_img);
-    InstructionComponents.push(logo);
     InstructionComponents.push(instr_image);
     InstructionComponents.push(Right_Rectangle_2);
     InstructionComponents.push(Left_Rectangle_2);
@@ -1267,16 +1145,6 @@ function InstructionRoutineEachFrame() {
     }
     
     
-    // *logo* updates
-    if (t >= 0.0 && logo.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      logo.tStart = t;  // (not accounting for frame time here)
-      logo.frameNStart = frameN;  // exact frame index
-      
-      logo.setAutoDraw(true);
-    }
-    
-    
     // *instr_image* updates
     if (t >= 0.0 && instr_image.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -1323,20 +1191,11 @@ function InstructionRoutineEachFrame() {
         if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
           // check if the mouse was inside our 'clickable' objects
           gotValidClick = false;
-          mouse.clickableObjects = eval([Right_Rectangle_2, Left_Rectangle_2])
-          ;// make sure the mouse's clickable objects are an array
-          if (!Array.isArray(mouse.clickableObjects)) {
-              mouse.clickableObjects = [mouse.clickableObjects];
-          }
-          // iterate through clickable objects and check each
-          for (const obj of mouse.clickableObjects) {
-              if (obj.contains(mouse)) {
-                  gotValidClick = true;
-                  mouse.clicked_name.push(obj.name);
-              }
-          }
-          if (!gotValidClick) {
-              mouse.clicked_name.push(null);
+          for (const obj of [Right_Rectangle_2,Left_Rectangle_2]) {
+            if (obj.contains(mouse)) {
+              gotValidClick = true;
+              mouse.clicked_name.push(obj.name)
+            }
           }
           _mouseXYs = mouse.getPos();
           mouse.x.push(_mouseXYs[0]);
@@ -1443,13 +1302,13 @@ function InstructionRoutineEnd(snapshot) {
     
     key_resp.stop();
     // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('mouse.x', mouse.x);
-    psychoJS.experiment.addData('mouse.y', mouse.y);
-    psychoJS.experiment.addData('mouse.leftButton', mouse.leftButton);
-    psychoJS.experiment.addData('mouse.midButton', mouse.midButton);
-    psychoJS.experiment.addData('mouse.rightButton', mouse.rightButton);
-    psychoJS.experiment.addData('mouse.time', mouse.time);
-    psychoJS.experiment.addData('mouse.clicked_name', mouse.clicked_name);
+    if (mouse.x) {  psychoJS.experiment.addData('mouse.x', mouse.x[0])};
+    if (mouse.y) {  psychoJS.experiment.addData('mouse.y', mouse.y[0])};
+    if (mouse.leftButton) {  psychoJS.experiment.addData('mouse.leftButton', mouse.leftButton[0])};
+    if (mouse.midButton) {  psychoJS.experiment.addData('mouse.midButton', mouse.midButton[0])};
+    if (mouse.rightButton) {  psychoJS.experiment.addData('mouse.rightButton', mouse.rightButton[0])};
+    if (mouse.time) {  psychoJS.experiment.addData('mouse.time', mouse.time[0])};
+    if (mouse.clicked_name) {  psychoJS.experiment.addData('mouse.clicked_name', mouse.clicked_name[0])};
     
     // the Routine "Instruction" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1463,9 +1322,7 @@ function InstructionRoutineEnd(snapshot) {
 }
 
 
-var ReadyNumbersMaxDurationReached;
 var _key_resp_2_allKeys;
-var ReadyNumbersMaxDuration;
 var ReadyNumbersComponents;
 function ReadyNumbersRoutineBegin(snapshot) {
   return async function () {
@@ -1473,12 +1330,11 @@ function ReadyNumbersRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'ReadyNumbers' ---
     t = 0;
+    ReadyNumbersClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    ReadyNumbersClock.reset();
-    routineTimer.reset();
-    ReadyNumbersMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('ReadyNumbers.started', globalClock.getTime());
     key_resp_2.keys = undefined;
     key_resp_2.rt = undefined;
     _key_resp_2_allKeys = [];
@@ -1491,13 +1347,10 @@ function ReadyNumbersRoutineBegin(snapshot) {
     mouse_2.rightButton = [];
     mouse_2.time = [];
     gotValidClick = false; // until a click is received
-    psychoJS.experiment.addData('ReadyNumbers.started', globalClock.getTime());
-    ReadyNumbersMaxDuration = null
     // keep track of which components have finished
     ReadyNumbersComponents = [];
     ReadyNumbersComponents.push(back_img_6);
     ReadyNumbersComponents.push(Instr_numbers_Only);
-    ReadyNumbersComponents.push(logo_2);
     ReadyNumbersComponents.push(key_resp_2);
     ReadyNumbersComponents.push(mouse_2);
     
@@ -1535,16 +1388,6 @@ function ReadyNumbersRoutineEachFrame() {
       Instr_numbers_Only.frameNStart = frameN;  // exact frame index
       
       Instr_numbers_Only.setAutoDraw(true);
-    }
-    
-    
-    // *logo_2* updates
-    if (t >= 0.0 && logo_2.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      logo_2.tStart = t;  // (not accounting for frame time here)
-      logo_2.frameNStart = frameN;  // exact frame index
-      
-      logo_2.setAutoDraw(true);
     }
     
     
@@ -1648,12 +1491,12 @@ function ReadyNumbersRoutineEnd(snapshot) {
     
     key_resp_2.stop();
     // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('mouse_2.x', mouse_2.x);
-    psychoJS.experiment.addData('mouse_2.y', mouse_2.y);
-    psychoJS.experiment.addData('mouse_2.leftButton', mouse_2.leftButton);
-    psychoJS.experiment.addData('mouse_2.midButton', mouse_2.midButton);
-    psychoJS.experiment.addData('mouse_2.rightButton', mouse_2.rightButton);
-    psychoJS.experiment.addData('mouse_2.time', mouse_2.time);
+    if (mouse_2.x) {  psychoJS.experiment.addData('mouse_2.x', mouse_2.x[0])};
+    if (mouse_2.y) {  psychoJS.experiment.addData('mouse_2.y', mouse_2.y[0])};
+    if (mouse_2.leftButton) {  psychoJS.experiment.addData('mouse_2.leftButton', mouse_2.leftButton[0])};
+    if (mouse_2.midButton) {  psychoJS.experiment.addData('mouse_2.midButton', mouse_2.midButton[0])};
+    if (mouse_2.rightButton) {  psychoJS.experiment.addData('mouse_2.rightButton', mouse_2.rightButton[0])};
+    if (mouse_2.time) {  psychoJS.experiment.addData('mouse_2.time', mouse_2.time[0])};
     
     // the Routine "ReadyNumbers" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1667,7 +1510,6 @@ function ReadyNumbersRoutineEnd(snapshot) {
 }
 
 
-var NumberTask_PracticeMaxDurationReached;
 var basePos;
 var bottomQuadrants;
 var number;
@@ -1677,7 +1519,6 @@ var stimPos;
 var correctKey;
 var correctkeyformouse;
 var _NumberResponse_allKeys;
-var NumberTask_PracticeMaxDuration;
 var NumberTask_PracticeComponents;
 function NumberTask_PracticeRoutineBegin(snapshot) {
   return async function () {
@@ -1685,12 +1526,11 @@ function NumberTask_PracticeRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'NumberTask_Practice' ---
     t = 0;
+    NumberTask_PracticeClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    NumberTask_PracticeClock.reset();
-    routineTimer.reset();
-    NumberTask_PracticeMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('NumberTask_Practice.started', globalClock.getTime());
     // Run 'Begin Routine' code from NumberTask_Code
     basePos = 0.125;
     bottomQuadrants = [[(- basePos), (- basePos)], [basePos, (- basePos)]];
@@ -1737,8 +1577,6 @@ function NumberTask_PracticeRoutineBegin(snapshot) {
     NumberClickResponse.time = [];
     NumberClickResponse.clicked_name = [];
     gotValidClick = false; // until a click is received
-    psychoJS.experiment.addData('NumberTask_Practice.started', globalClock.getTime());
-    NumberTask_PracticeMaxDuration = null
     // keep track of which components have finished
     NumberTask_PracticeComponents = [];
     NumberTask_PracticeComponents.push(back_img_2);
@@ -1863,20 +1701,11 @@ function NumberTask_PracticeRoutineEachFrame() {
         if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
           // check if the mouse was inside our 'clickable' objects
           gotValidClick = false;
-          NumberClickResponse.clickableObjects = eval([left, right])
-          ;// make sure the mouse's clickable objects are an array
-          if (!Array.isArray(NumberClickResponse.clickableObjects)) {
-              NumberClickResponse.clickableObjects = [NumberClickResponse.clickableObjects];
-          }
-          // iterate through clickable objects and check each
-          for (const obj of NumberClickResponse.clickableObjects) {
-              if (obj.contains(NumberClickResponse)) {
-                  gotValidClick = true;
-                  NumberClickResponse.clicked_name.push(obj.name);
-              }
-          }
-          if (!gotValidClick) {
-              NumberClickResponse.clicked_name.push(null);
+          for (const obj of [left,right]) {
+            if (obj.contains(NumberClickResponse)) {
+              gotValidClick = true;
+              NumberClickResponse.clicked_name.push(obj.name)
+            }
           }
           _mouseXYs = NumberClickResponse.getPos();
           NumberClickResponse.x.push(_mouseXYs[0]);
@@ -1954,13 +1783,13 @@ function NumberTask_PracticeRoutineEnd(snapshot) {
     
     NumberResponse.stop();
     // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('NumberClickResponse.x', NumberClickResponse.x);
-    psychoJS.experiment.addData('NumberClickResponse.y', NumberClickResponse.y);
-    psychoJS.experiment.addData('NumberClickResponse.leftButton', NumberClickResponse.leftButton);
-    psychoJS.experiment.addData('NumberClickResponse.midButton', NumberClickResponse.midButton);
-    psychoJS.experiment.addData('NumberClickResponse.rightButton', NumberClickResponse.rightButton);
-    psychoJS.experiment.addData('NumberClickResponse.time', NumberClickResponse.time);
-    psychoJS.experiment.addData('NumberClickResponse.clicked_name', NumberClickResponse.clicked_name);
+    if (NumberClickResponse.x) {  psychoJS.experiment.addData('NumberClickResponse.x', NumberClickResponse.x[0])};
+    if (NumberClickResponse.y) {  psychoJS.experiment.addData('NumberClickResponse.y', NumberClickResponse.y[0])};
+    if (NumberClickResponse.leftButton) {  psychoJS.experiment.addData('NumberClickResponse.leftButton', NumberClickResponse.leftButton[0])};
+    if (NumberClickResponse.midButton) {  psychoJS.experiment.addData('NumberClickResponse.midButton', NumberClickResponse.midButton[0])};
+    if (NumberClickResponse.rightButton) {  psychoJS.experiment.addData('NumberClickResponse.rightButton', NumberClickResponse.rightButton[0])};
+    if (NumberClickResponse.time) {  psychoJS.experiment.addData('NumberClickResponse.time', NumberClickResponse.time[0])};
+    if (NumberClickResponse.clicked_name) {  psychoJS.experiment.addData('NumberClickResponse.clicked_name', NumberClickResponse.clicked_name[0])};
     
     // the Routine "NumberTask_Practice" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1974,11 +1803,9 @@ function NumberTask_PracticeRoutineEnd(snapshot) {
 }
 
 
-var FeedbackMaxDurationReached;
 var errorImagePos;
 var feedbackText;
 var showErrorImage;
-var FeedbackMaxDuration;
 var FeedbackComponents;
 function FeedbackRoutineBegin(snapshot) {
   return async function () {
@@ -1986,12 +1813,12 @@ function FeedbackRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'Feedback' ---
     t = 0;
+    FeedbackClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    FeedbackClock.reset(routineTimer.getTime());
     routineTimer.add(2.000000);
-    FeedbackMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('Feedback.started', globalClock.getTime());
     // Run 'Begin Routine' code from FeedBack_Code
     var _pj;
     function _pj_snippets(container) {
@@ -2032,8 +1859,6 @@ function FeedbackRoutineBegin(snapshot) {
     
     FeedBack_NumberTask.setText(feedbackText);
     ErrorImage.setPos([0, (- 0.45)]);
-    psychoJS.experiment.addData('Feedback.started', globalClock.getTime());
-    FeedbackMaxDuration = null
     // keep track of which components have finished
     FeedbackComponents = [];
     FeedbackComponents.push(back_img_3);
@@ -2067,7 +1892,7 @@ function FeedbackRoutineEachFrame() {
       back_img_3.setAutoDraw(true);
     }
     
-    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (back_img_3.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       back_img_3.setAutoDraw(false);
     }
@@ -2082,7 +1907,7 @@ function FeedbackRoutineEachFrame() {
       FeedBack_NumberTask.setAutoDraw(true);
     }
     
-    frameRemains = 0.0 + 1.5 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 1.5 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (FeedBack_NumberTask.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       FeedBack_NumberTask.setAutoDraw(false);
     }
@@ -2097,7 +1922,7 @@ function FeedbackRoutineEachFrame() {
       ErrorImage.setAutoDraw(true);
     }
     
-    frameRemains = 1.5 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 1.5  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if ((ErrorImage.status === PsychoJS.Status.STARTED || ErrorImage.status === PsychoJS.Status.FINISHED) && t >= frameRemains) {
       ErrorImage.setAutoDraw(false);
     }
@@ -2138,11 +1963,6 @@ function FeedbackRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('Feedback.stopped', globalClock.getTime());
-    if (FeedbackMaxDurationReached) {
-        FeedbackClock.add(FeedbackMaxDuration);
-    } else {
-        FeedbackClock.add(2.000000);
-    }
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
@@ -2152,9 +1972,7 @@ function FeedbackRoutineEnd(snapshot) {
 }
 
 
-var ReadyLettersMaxDurationReached;
 var _key_resp_3_allKeys;
-var ReadyLettersMaxDuration;
 var ReadyLettersComponents;
 function ReadyLettersRoutineBegin(snapshot) {
   return async function () {
@@ -2162,12 +1980,11 @@ function ReadyLettersRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'ReadyLetters' ---
     t = 0;
+    ReadyLettersClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    ReadyLettersClock.reset();
-    routineTimer.reset();
-    ReadyLettersMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('ReadyLetters.started', globalClock.getTime());
     key_resp_3.keys = undefined;
     key_resp_3.rt = undefined;
     _key_resp_3_allKeys = [];
@@ -2180,8 +1997,6 @@ function ReadyLettersRoutineBegin(snapshot) {
     mouse_3.rightButton = [];
     mouse_3.time = [];
     gotValidClick = false; // until a click is received
-    psychoJS.experiment.addData('ReadyLetters.started', globalClock.getTime());
-    ReadyLettersMaxDuration = null
     // keep track of which components have finished
     ReadyLettersComponents = [];
     ReadyLettersComponents.push(back_img_7);
@@ -2326,12 +2141,12 @@ function ReadyLettersRoutineEnd(snapshot) {
     
     key_resp_3.stop();
     // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('mouse_3.x', mouse_3.x);
-    psychoJS.experiment.addData('mouse_3.y', mouse_3.y);
-    psychoJS.experiment.addData('mouse_3.leftButton', mouse_3.leftButton);
-    psychoJS.experiment.addData('mouse_3.midButton', mouse_3.midButton);
-    psychoJS.experiment.addData('mouse_3.rightButton', mouse_3.rightButton);
-    psychoJS.experiment.addData('mouse_3.time', mouse_3.time);
+    if (mouse_3.x) {  psychoJS.experiment.addData('mouse_3.x', mouse_3.x[0])};
+    if (mouse_3.y) {  psychoJS.experiment.addData('mouse_3.y', mouse_3.y[0])};
+    if (mouse_3.leftButton) {  psychoJS.experiment.addData('mouse_3.leftButton', mouse_3.leftButton[0])};
+    if (mouse_3.midButton) {  psychoJS.experiment.addData('mouse_3.midButton', mouse_3.midButton[0])};
+    if (mouse_3.rightButton) {  psychoJS.experiment.addData('mouse_3.rightButton', mouse_3.rightButton[0])};
+    if (mouse_3.time) {  psychoJS.experiment.addData('mouse_3.time', mouse_3.time[0])};
     
     // the Routine "ReadyLetters" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -2345,10 +2160,8 @@ function ReadyLettersRoutineEnd(snapshot) {
 }
 
 
-var LetterTask_PracticeMaxDurationReached;
 var quadrants;
 var _LetterResponse_allKeys;
-var LetterTask_PracticeMaxDuration;
 var LetterTask_PracticeComponents;
 function LetterTask_PracticeRoutineBegin(snapshot) {
   return async function () {
@@ -2356,12 +2169,11 @@ function LetterTask_PracticeRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'LetterTask_Practice' ---
     t = 0;
+    LetterTask_PracticeClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    LetterTask_PracticeClock.reset();
-    routineTimer.reset();
-    LetterTask_PracticeMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('LetterTask_Practice.started', globalClock.getTime());
     // Run 'Begin Routine' code from LetterTask_Code
     var _pj;
     function _pj_snippets(container) {
@@ -2428,8 +2240,6 @@ function LetterTask_PracticeRoutineBegin(snapshot) {
     NumberClickResponse_2.time = [];
     NumberClickResponse_2.clicked_name = [];
     gotValidClick = false; // until a click is received
-    psychoJS.experiment.addData('LetterTask_Practice.started', globalClock.getTime());
-    LetterTask_PracticeMaxDuration = null
     // keep track of which components have finished
     LetterTask_PracticeComponents = [];
     LetterTask_PracticeComponents.push(back_img_5);
@@ -2554,20 +2364,11 @@ function LetterTask_PracticeRoutineEachFrame() {
         if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
           // check if the mouse was inside our 'clickable' objects
           gotValidClick = false;
-          NumberClickResponse_2.clickableObjects = eval([left_2, right_2])
-          ;// make sure the mouse's clickable objects are an array
-          if (!Array.isArray(NumberClickResponse_2.clickableObjects)) {
-              NumberClickResponse_2.clickableObjects = [NumberClickResponse_2.clickableObjects];
-          }
-          // iterate through clickable objects and check each
-          for (const obj of NumberClickResponse_2.clickableObjects) {
-              if (obj.contains(NumberClickResponse_2)) {
-                  gotValidClick = true;
-                  NumberClickResponse_2.clicked_name.push(obj.name);
-              }
-          }
-          if (!gotValidClick) {
-              NumberClickResponse_2.clicked_name.push(null);
+          for (const obj of [left_2,right_2]) {
+            if (obj.contains(NumberClickResponse_2)) {
+              gotValidClick = true;
+              NumberClickResponse_2.clicked_name.push(obj.name)
+            }
           }
           _mouseXYs = NumberClickResponse_2.getPos();
           NumberClickResponse_2.x.push(_mouseXYs[0]);
@@ -2641,13 +2442,13 @@ function LetterTask_PracticeRoutineEnd(snapshot) {
     
     LetterResponse.stop();
     // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('NumberClickResponse_2.x', NumberClickResponse_2.x);
-    psychoJS.experiment.addData('NumberClickResponse_2.y', NumberClickResponse_2.y);
-    psychoJS.experiment.addData('NumberClickResponse_2.leftButton', NumberClickResponse_2.leftButton);
-    psychoJS.experiment.addData('NumberClickResponse_2.midButton', NumberClickResponse_2.midButton);
-    psychoJS.experiment.addData('NumberClickResponse_2.rightButton', NumberClickResponse_2.rightButton);
-    psychoJS.experiment.addData('NumberClickResponse_2.time', NumberClickResponse_2.time);
-    psychoJS.experiment.addData('NumberClickResponse_2.clicked_name', NumberClickResponse_2.clicked_name);
+    if (NumberClickResponse_2.x) {  psychoJS.experiment.addData('NumberClickResponse_2.x', NumberClickResponse_2.x[0])};
+    if (NumberClickResponse_2.y) {  psychoJS.experiment.addData('NumberClickResponse_2.y', NumberClickResponse_2.y[0])};
+    if (NumberClickResponse_2.leftButton) {  psychoJS.experiment.addData('NumberClickResponse_2.leftButton', NumberClickResponse_2.leftButton[0])};
+    if (NumberClickResponse_2.midButton) {  psychoJS.experiment.addData('NumberClickResponse_2.midButton', NumberClickResponse_2.midButton[0])};
+    if (NumberClickResponse_2.rightButton) {  psychoJS.experiment.addData('NumberClickResponse_2.rightButton', NumberClickResponse_2.rightButton[0])};
+    if (NumberClickResponse_2.time) {  psychoJS.experiment.addData('NumberClickResponse_2.time', NumberClickResponse_2.time[0])};
+    if (NumberClickResponse_2.clicked_name) {  psychoJS.experiment.addData('NumberClickResponse_2.clicked_name', NumberClickResponse_2.clicked_name[0])};
     
     // the Routine "LetterTask_Practice" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -2661,8 +2462,6 @@ function LetterTask_PracticeRoutineEnd(snapshot) {
 }
 
 
-var Letter_FeedbackMaxDurationReached;
-var Letter_FeedbackMaxDuration;
 var Letter_FeedbackComponents;
 function Letter_FeedbackRoutineBegin(snapshot) {
   return async function () {
@@ -2670,12 +2469,12 @@ function Letter_FeedbackRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'Letter_Feedback' ---
     t = 0;
+    Letter_FeedbackClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    Letter_FeedbackClock.reset(routineTimer.getTime());
     routineTimer.add(2.000000);
-    Letter_FeedbackMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('Letter_Feedback.started', globalClock.getTime());
     // Run 'Begin Routine' code from FeedBack_Code_2
     var _pj;
     function _pj_snippets(container) {
@@ -2715,8 +2514,6 @@ function Letter_FeedbackRoutineBegin(snapshot) {
     }
     
     FeedBack_LetterTask.setText(feedbackText);
-    psychoJS.experiment.addData('Letter_Feedback.started', globalClock.getTime());
-    Letter_FeedbackMaxDuration = null
     // keep track of which components have finished
     Letter_FeedbackComponents = [];
     Letter_FeedbackComponents.push(back_img_8);
@@ -2749,7 +2546,7 @@ function Letter_FeedbackRoutineEachFrame() {
       back_img_8.setAutoDraw(true);
     }
     
-    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (back_img_8.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       back_img_8.setAutoDraw(false);
     }
@@ -2764,7 +2561,7 @@ function Letter_FeedbackRoutineEachFrame() {
       FeedBack_LetterTask.setAutoDraw(true);
     }
     
-    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (FeedBack_LetterTask.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       FeedBack_LetterTask.setAutoDraw(false);
     }
@@ -2779,7 +2576,7 @@ function Letter_FeedbackRoutineEachFrame() {
       ErrorImage_2.setAutoDraw(true);
     }
     
-    frameRemains = 2 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 2  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if ((ErrorImage_2.status === PsychoJS.Status.STARTED || ErrorImage_2.status === PsychoJS.Status.FINISHED) && t >= frameRemains) {
       ErrorImage_2.setAutoDraw(false);
     }
@@ -2820,11 +2617,6 @@ function Letter_FeedbackRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('Letter_Feedback.stopped', globalClock.getTime());
-    if (Letter_FeedbackMaxDurationReached) {
-        Letter_FeedbackClock.add(Letter_FeedbackMaxDuration);
-    } else {
-        Letter_FeedbackClock.add(2.000000);
-    }
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
@@ -2834,9 +2626,7 @@ function Letter_FeedbackRoutineEnd(snapshot) {
 }
 
 
-var ReadyMixedMaxDurationReached;
 var _key_resp_4_allKeys;
-var ReadyMixedMaxDuration;
 var ReadyMixedComponents;
 function ReadyMixedRoutineBegin(snapshot) {
   return async function () {
@@ -2844,12 +2634,11 @@ function ReadyMixedRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'ReadyMixed' ---
     t = 0;
+    ReadyMixedClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    ReadyMixedClock.reset();
-    routineTimer.reset();
-    ReadyMixedMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('ReadyMixed.started', globalClock.getTime());
     key_resp_4.keys = undefined;
     key_resp_4.rt = undefined;
     _key_resp_4_allKeys = [];
@@ -2862,8 +2651,6 @@ function ReadyMixedRoutineBegin(snapshot) {
     mouse_4.rightButton = [];
     mouse_4.time = [];
     gotValidClick = false; // until a click is received
-    psychoJS.experiment.addData('ReadyMixed.started', globalClock.getTime());
-    ReadyMixedMaxDuration = null
     // keep track of which components have finished
     ReadyMixedComponents = [];
     ReadyMixedComponents.push(back_img_9);
@@ -3008,12 +2795,12 @@ function ReadyMixedRoutineEnd(snapshot) {
     
     key_resp_4.stop();
     // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('mouse_4.x', mouse_4.x);
-    psychoJS.experiment.addData('mouse_4.y', mouse_4.y);
-    psychoJS.experiment.addData('mouse_4.leftButton', mouse_4.leftButton);
-    psychoJS.experiment.addData('mouse_4.midButton', mouse_4.midButton);
-    psychoJS.experiment.addData('mouse_4.rightButton', mouse_4.rightButton);
-    psychoJS.experiment.addData('mouse_4.time', mouse_4.time);
+    if (mouse_4.x) {  psychoJS.experiment.addData('mouse_4.x', mouse_4.x[0])};
+    if (mouse_4.y) {  psychoJS.experiment.addData('mouse_4.y', mouse_4.y[0])};
+    if (mouse_4.leftButton) {  psychoJS.experiment.addData('mouse_4.leftButton', mouse_4.leftButton[0])};
+    if (mouse_4.midButton) {  psychoJS.experiment.addData('mouse_4.midButton', mouse_4.midButton[0])};
+    if (mouse_4.rightButton) {  psychoJS.experiment.addData('mouse_4.rightButton', mouse_4.rightButton[0])};
+    if (mouse_4.time) {  psychoJS.experiment.addData('mouse_4.time', mouse_4.time[0])};
     
     // the Routine "ReadyMixed" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -3027,11 +2814,9 @@ function ReadyMixedRoutineEnd(snapshot) {
 }
 
 
-var reset_MixedMaxDurationReached;
 var trialCounter;
 var switchInterval;
 var taskOrder;
-var reset_MixedMaxDuration;
 var reset_MixedComponents;
 function reset_MixedRoutineBegin(snapshot) {
   return async function () {
@@ -3039,12 +2824,11 @@ function reset_MixedRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'reset_Mixed' ---
     t = 0;
+    reset_MixedClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    reset_MixedClock.reset();
-    routineTimer.reset();
-    reset_MixedMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('reset_Mixed.started', globalClock.getTime());
     // Run 'Begin Routine' code from code_2
     previousTask = null;
     trialCounter = 0;
@@ -3057,8 +2841,6 @@ function reset_MixedRoutineBegin(snapshot) {
         }
     }
     
-    psychoJS.experiment.addData('reset_Mixed.started', globalClock.getTime());
-    reset_MixedMaxDuration = null
     // keep track of which components have finished
     reset_MixedComponents = [];
     
@@ -3126,7 +2908,6 @@ function reset_MixedRoutineEnd(snapshot) {
 }
 
 
-var Mixed_TaskMaxDurationReached;
 var topPositions;
 var bottomPositions;
 var taskType;
@@ -3136,7 +2917,6 @@ var trialtypelist;
 var tasktypelist;
 var acc_list;
 var _MixedResponse_allKeys;
-var Mixed_TaskMaxDuration;
 var Mixed_TaskComponents;
 function Mixed_TaskRoutineBegin(snapshot) {
   return async function () {
@@ -3144,12 +2924,11 @@ function Mixed_TaskRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'Mixed_Task' ---
     t = 0;
+    Mixed_TaskClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    Mixed_TaskClock.reset();
-    routineTimer.reset();
-    Mixed_TaskMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('Mixed_Task.started', globalClock.getTime());
     // Run 'Begin Routine' code from code_3
     var _pj;
     function _pj_snippets(container) {
@@ -3249,8 +3028,6 @@ function Mixed_TaskRoutineBegin(snapshot) {
     NumberClickResponse_3.time = [];
     NumberClickResponse_3.clicked_name = [];
     gotValidClick = false; // until a click is received
-    psychoJS.experiment.addData('Mixed_Task.started', globalClock.getTime());
-    Mixed_TaskMaxDuration = null
     // keep track of which components have finished
     Mixed_TaskComponents = [];
     Mixed_TaskComponents.push(back_img_4);
@@ -3375,20 +3152,11 @@ function Mixed_TaskRoutineEachFrame() {
         if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
           // check if the mouse was inside our 'clickable' objects
           gotValidClick = false;
-          NumberClickResponse_3.clickableObjects = eval([left_3, right_3])
-          ;// make sure the mouse's clickable objects are an array
-          if (!Array.isArray(NumberClickResponse_3.clickableObjects)) {
-              NumberClickResponse_3.clickableObjects = [NumberClickResponse_3.clickableObjects];
-          }
-          // iterate through clickable objects and check each
-          for (const obj of NumberClickResponse_3.clickableObjects) {
-              if (obj.contains(NumberClickResponse_3)) {
-                  gotValidClick = true;
-                  NumberClickResponse_3.clicked_name.push(obj.name);
-              }
-          }
-          if (!gotValidClick) {
-              NumberClickResponse_3.clicked_name.push(null);
+          for (const obj of [left_3,right_3]) {
+            if (obj.contains(NumberClickResponse_3)) {
+              gotValidClick = true;
+              NumberClickResponse_3.clicked_name.push(obj.name)
+            }
           }
           _mouseXYs = NumberClickResponse_3.getPos();
           NumberClickResponse_3.x.push(_mouseXYs[0]);
@@ -3473,13 +3241,13 @@ function Mixed_TaskRoutineEnd(snapshot) {
     
     MixedResponse.stop();
     // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('NumberClickResponse_3.x', NumberClickResponse_3.x);
-    psychoJS.experiment.addData('NumberClickResponse_3.y', NumberClickResponse_3.y);
-    psychoJS.experiment.addData('NumberClickResponse_3.leftButton', NumberClickResponse_3.leftButton);
-    psychoJS.experiment.addData('NumberClickResponse_3.midButton', NumberClickResponse_3.midButton);
-    psychoJS.experiment.addData('NumberClickResponse_3.rightButton', NumberClickResponse_3.rightButton);
-    psychoJS.experiment.addData('NumberClickResponse_3.time', NumberClickResponse_3.time);
-    psychoJS.experiment.addData('NumberClickResponse_3.clicked_name', NumberClickResponse_3.clicked_name);
+    if (NumberClickResponse_3.x) {  psychoJS.experiment.addData('NumberClickResponse_3.x', NumberClickResponse_3.x[0])};
+    if (NumberClickResponse_3.y) {  psychoJS.experiment.addData('NumberClickResponse_3.y', NumberClickResponse_3.y[0])};
+    if (NumberClickResponse_3.leftButton) {  psychoJS.experiment.addData('NumberClickResponse_3.leftButton', NumberClickResponse_3.leftButton[0])};
+    if (NumberClickResponse_3.midButton) {  psychoJS.experiment.addData('NumberClickResponse_3.midButton', NumberClickResponse_3.midButton[0])};
+    if (NumberClickResponse_3.rightButton) {  psychoJS.experiment.addData('NumberClickResponse_3.rightButton', NumberClickResponse_3.rightButton[0])};
+    if (NumberClickResponse_3.time) {  psychoJS.experiment.addData('NumberClickResponse_3.time', NumberClickResponse_3.time[0])};
+    if (NumberClickResponse_3.clicked_name) {  psychoJS.experiment.addData('NumberClickResponse_3.clicked_name', NumberClickResponse_3.clicked_name[0])};
     
     // the Routine "Mixed_Task" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -3493,9 +3261,7 @@ function Mixed_TaskRoutineEnd(snapshot) {
 }
 
 
-var Mixed_FeedbackMaxDurationReached;
 var errorimgpth;
-var Mixed_FeedbackMaxDuration;
 var Mixed_FeedbackComponents;
 function Mixed_FeedbackRoutineBegin(snapshot) {
   return async function () {
@@ -3503,12 +3269,12 @@ function Mixed_FeedbackRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'Mixed_Feedback' ---
     t = 0;
+    Mixed_FeedbackClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    Mixed_FeedbackClock.reset(routineTimer.getTime());
     routineTimer.add(2.000000);
-    Mixed_FeedbackMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('Mixed_Feedback.started', globalClock.getTime());
     // Run 'Begin Routine' code from FeedBack_Code_3
     var _pj;
     function _pj_snippets(container) {
@@ -3554,8 +3320,6 @@ function Mixed_FeedbackRoutineBegin(snapshot) {
     FeedBack_LetterTask_2.setText(feedbackText);
     ErrorImage_3.setPos(errorImagePos);
     ErrorImage_3.setImage(errorimgpth);
-    psychoJS.experiment.addData('Mixed_Feedback.started', globalClock.getTime());
-    Mixed_FeedbackMaxDuration = null
     // keep track of which components have finished
     Mixed_FeedbackComponents = [];
     Mixed_FeedbackComponents.push(back_img_10);
@@ -3588,7 +3352,7 @@ function Mixed_FeedbackRoutineEachFrame() {
       back_img_10.setAutoDraw(true);
     }
     
-    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (back_img_10.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       back_img_10.setAutoDraw(false);
     }
@@ -3603,7 +3367,7 @@ function Mixed_FeedbackRoutineEachFrame() {
       FeedBack_LetterTask_2.setAutoDraw(true);
     }
     
-    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 0.0 + 2 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (FeedBack_LetterTask_2.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       FeedBack_LetterTask_2.setAutoDraw(false);
     }
@@ -3618,7 +3382,7 @@ function Mixed_FeedbackRoutineEachFrame() {
       ErrorImage_3.setAutoDraw(true);
     }
     
-    frameRemains = 2 - psychoJS.window.monitorFramePeriod * 0.75;// most of one frame period left
+    frameRemains = 2  - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if ((ErrorImage_3.status === PsychoJS.Status.STARTED || ErrorImage_3.status === PsychoJS.Status.FINISHED) && t >= frameRemains) {
       ErrorImage_3.setAutoDraw(false);
     }
@@ -3659,11 +3423,6 @@ function Mixed_FeedbackRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('Mixed_Feedback.stopped', globalClock.getTime());
-    if (Mixed_FeedbackMaxDurationReached) {
-        Mixed_FeedbackClock.add(Mixed_FeedbackMaxDuration);
-    } else {
-        Mixed_FeedbackClock.add(2.000000);
-    }
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
       psychoJS.experiment.nextEntry(snapshot);
@@ -3673,8 +3432,6 @@ function Mixed_FeedbackRoutineEnd(snapshot) {
 }
 
 
-var endMaxDurationReached;
-var endMaxDuration;
 var endComponents;
 function endRoutineBegin(snapshot) {
   return async function () {
@@ -3682,12 +3439,11 @@ function endRoutineBegin(snapshot) {
     
     //--- Prepare to start Routine 'end' ---
     t = 0;
+    endClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    endClock.reset();
-    routineTimer.reset();
-    endMaxDurationReached = false;
     // update component parameters for each repeat
+    psychoJS.experiment.addData('end.started', globalClock.getTime());
     // Run 'Begin Routine' code from code_4
     // Provided arrays
     let RT_array = RT_list;
@@ -3751,8 +3507,6 @@ function endRoutineBegin(snapshot) {
     
     Thank_you.setPos([0, 0]);
     Thank_you.setText(performance_report_text);
-    psychoJS.experiment.addData('end.started', globalClock.getTime());
-    endMaxDuration = null
     // keep track of which components have finished
     endComponents = [];
     endComponents.push(back_img_11);
