@@ -11,13 +11,25 @@
     window.addEventListener('load', function() {
       const dpr = window.devicePixelRatio || 1;
       const canvas = document.querySelector('canvas');
-      if (canvas) {
-        const ctx = canvas.getContext('2d');
-        const width = canvas.clientWidth;
-        const height = canvas.clientHeight;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
+      if (!canvas) return;
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      // set internal resolution for high-DPI
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      // preserve CSS size
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      // try 2D context
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
         ctx.scale(dpr, dpr);
+      } else {
+        // fallback to WebGL context viewport
+        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        if (gl) {
+          gl.viewport(0, 0, canvas.width, canvas.height);
+        }
       }
     });
     </script>
